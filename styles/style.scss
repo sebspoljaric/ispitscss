@@ -1,0 +1,88 @@
+//variables
+$cColor : rgb(82, 80, 80);
+$s1Color : rgb(170, 93, 106);
+$s2Color : rgb(230, 181, 90);
+
+
+
+//mixins
+@mixin flexCenter {
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+@mixin velicina {
+    position: relative;
+    width: 50vh;
+    height: 35vh;
+    color: white;
+    font-size: 15vh;
+    font-weight: 800;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    top: -1000px;
+    border: solid white 0.5vh;
+    opacity: 0.8;
+    margin: 50px;
+}
+
+
+body {
+    background-image: url(../blur-clean.jpg);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+//nesting
+.flex-container {
+    @include flexCenter();
+    
+    div.c {
+        @include flexCenter();
+        @include velicina();
+        background-color: $cColor;
+        animation: spustanje 1.5s forwards;
+    }
+    
+    div.s1 {
+        @include flexCenter();
+        @include velicina();
+        background-color: $s1Color;
+        animation: spustanje 1.5s forwards;
+        animation-delay: 1.5s;
+    }
+    
+    div.s2 {
+        @include flexCenter();
+        @include velicina();
+        background-color: $s2Color;
+        animation: spustanje 1.5s forwards;
+        animation-delay: 3s;
+    }
+}
+
+//animacije
+
+@keyframes spustanje {
+    from {
+      top: -1000px;
+    }
+    to {
+      top: 0vh;   
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+ 
